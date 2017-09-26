@@ -1,5 +1,5 @@
 # Information
-Github repo: https://github.com/NarakuF/microblog.git
+Github repo: https://github.com/NarakuF/microblog.git                      
 Deployed app: microblog.guandongliu.com, microblog.guandongliu.com/messages
 
 # Microblog

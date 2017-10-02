@@ -1,28 +1,18 @@
-<h2>Listing Messages</h2>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Desc</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for message <- @messages do %>
-    <tr>
-      <td><%= message.title %></td>
-      <td><%= message.desc %></td>
-
-      <td class="text-right">
-        <span><%= link "Show", to: message_path(@conn, :show, message), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: message_path(@conn, :edit, message), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: message_path(@conn, :delete, message), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
-
-<span><%= link "New Message", to: message_path(@conn, :new) %></span>
+<div class="row">
+  <div class="col-md-12 my-5">
+    <h1>All Messages</h1>
+  </div>
+  <%= for message <- @messages do %>  
+    <div class="col-md-12 my-2">
+      <div class="card">
+        <div class="card-body">
+          <h3><%= link message.user.email, to: user_path(@conn, :show, message.user), class: "text-dark" %></h3>
+          <h4 class="card-title">
+            <%= link(message.title, to: message_path(@conn, :show, message)) %>
+          </h4>
+          <p class="card-text"><%= message.desc %><p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

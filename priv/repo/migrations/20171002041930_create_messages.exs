@@ -5,9 +5,12 @@ defmodule Microblog.Repo.Migrations.CreateMessages do
     create table(:messages) do
       add :title, :string
       add :desc, :text
+      add :user_id, references(:users, on_delete: :delete_all), null: false
 
       timestamps()
     end
+
+    create index(:messages, [:user_id])
 
   end
 end

@@ -5,7 +5,7 @@ defmodule MicroblogWeb.MessageController do
   alias Microblog.Blog.Message
 
   def index(conn, _params) do
-    messages = Blog.list_messages()
+    messages = Blog.list_messages() |> Microblog.Repo.preload(:user)
     render(conn, "index.html", messages: messages)
   end
 
@@ -26,7 +26,7 @@ defmodule MicroblogWeb.MessageController do
   end
 
   def show(conn, %{"id" => id}) do
-    message = Blog.get_message!(id)
+    message = Blog.get_message!(id) |> Microblog.Repo.preload(:user)
     render(conn, "show.html", message: message)
   end
 

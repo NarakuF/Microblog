@@ -24,6 +24,11 @@
           <li class="nav-item active">
             <%= link "Home", to: message_path(@conn, :index), class: "nav-link" %>
           </li>
+          <%= if @current_user do %>
+            <li class="nav-item">
+              <%= link "New Post", to: message_path(@conn, :new), class: "nav-link" %>
+            </li>
+          <% end %>
         </ul>
       </div>
 
@@ -37,7 +42,7 @@
             [as: "user", class: "form-inline w-50"], fn f -> %>
           <input type="text" placeholder="email" 
                              class="form-control" name="email">
-          <input type="submit" value="Log in" class="btn btn-primary mr-2">
+          <input type="submit" value="Log in" class="btn btn-primary mx-1">
           <%= link "Sign up", to: user_path(@conn, :new), class: "btn btn-primary" %>
         <% end %>
       <% end %>

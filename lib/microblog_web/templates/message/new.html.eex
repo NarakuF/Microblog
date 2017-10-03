@@ -1,4 +1,4 @@
-<h2>New Message</h2>
+<h3>Post new message:</h3>
 
 <%= render "form.html", Map.put(assigns, :action, message_path(@conn, :create)) %>
 

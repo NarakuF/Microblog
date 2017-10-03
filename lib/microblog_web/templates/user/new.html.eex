@@ -1,3 +1,7 @@
 <h3 class="form-title text-center my-3">Sign up a new account</h3>
 
 <%= render "form.html", Map.put(assigns, :action, user_path(@conn, :create)) %>
+
+<div class="col-md-4 mx-auto d-flex justify-content-around">
+  <%= link "Cancel", to: message_path(@conn, :index) %>
+</div>

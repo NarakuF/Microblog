@@ -1,3 +1,7 @@
 <h3 class="form-title text-center my-3">Edit User</h3>
 
 <%= render "form.html", Map.put(assigns, :action, user_path(@conn, :update, @user)) %>
+
+<div class="col-md-4 mx-auto d-flex justify-content-around">
+  <%= link "Cancel", to: user_path(@conn, :show, @user) %>
+</div>

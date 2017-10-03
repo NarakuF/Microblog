@@ -1,15 +1,22 @@
-<h3>Personal Page</h3>
-
-<ul>
-  <li>
-    <strong>Email:</strong>
-    <%= @user.email %>
-  </li>
-</ul>
-
-<%= if @user==@current_user do %>
-  <span><%= link "Edit", to: user_path(@conn, :edit, @user) %></span>
-<% end %>
-<span><%= link "Back", to: message_path(@conn, :index) %></span>
-
-<%= render MicroblogWeb.MessageView, "index.html", assigns %>
+<div class="row">
+  <div class="col-md-10 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title"><%= @user.email %></h2>
+        <h3 class="card-title">Personal Page</h3>
+      </div>
+      <div class="card-header">
+        <%= if @user==@current_user do %>
+          <span><%= link "Edit", to: user_path(@conn, :edit, @user) %></span>
+        <% else %>
+          
+          <span><%= link "Follow", to: follow_path(@conn, :new, [@current_user.id, @user.id]) %></span>
+        <% end %>
+        <span><%= link "Back", to: message_path(@conn, :index), class: "ml-5" %></span>
+      </div>
+      <div class="card-body border">
+        <%= render MicroblogWeb.MessageView, "index.html", assigns %>
+      </div>
+    </div>
+  </div>
+</div>

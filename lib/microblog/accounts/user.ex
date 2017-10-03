@@ -7,6 +7,8 @@ defmodule Microblog.Accounts.User do
   schema "users" do
     field :email, :string
     has_many :messages, Microblog.Blog.Message
+    has_many :followers, Microblog.Blog.Follow, foreign_key: :follower_id
+    has_many :following_users, Microblog.Blog.Follow, foreign_key: :following_user_id
 
     timestamps()
   end

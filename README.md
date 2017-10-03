@@ -2,6 +2,23 @@
 Github repo: https://github.com/NarakuF/microblog.git                      
 Deployed app: microblog.guandongliu.com, microblog.guandongliu.com/messages
 
+# Behavior
+
+## Login/ signup
+A registered user can login with email address and logout, a new user can sign up with email address.
+
+Need to add username and password in the future.
+
+## Post
+After user login, the user can post new message with title and description.
+
+Need to add feature of mention and hashtag in the future.
+
+## Follow
+A user can follow other users.
+
+Not completely implemented!!!
+
 # Microblog
 
 To start your Phoenix server:

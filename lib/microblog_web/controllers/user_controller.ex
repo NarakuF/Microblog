@@ -1,6 +1,7 @@
 defmodule MicroblogWeb.UserController do
   use MicroblogWeb, :controller
 
+  alias Microblog.Repo
   alias Microblog.Accounts
   alias Microblog.Accounts.User
 
@@ -26,9 +27,8 @@ defmodule MicroblogWeb.UserController do
   end
 
   def show(conn, %{"id" => id}) do
-    user = Accounts.get_user!(id)
-    messages = Microblog.Repo.preload(user, :messages).messages
-    messages = Microblog.Repo.preload(messages, :user)
+    user = Accounts.get_user!(id) |> Repo.preload(:messages)
+    messages = Repo.preload(user.messages, :user)
     render(conn, "show.html", user: user, messages: messages)
   end
 

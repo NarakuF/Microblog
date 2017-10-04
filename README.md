@@ -1,26 +1,24 @@
-# Information
+# Microblog
 Github repo: https://github.com/NarakuF/microblog.git                      
-Deployed app: microblog.guandongliu.com, microblog.guandongliu.com/messages
+Deployed app: microblog.guandongliu.com
 
 # Behavior
-
 ## Login/ signup
 A registered user can login with email address and logout, a new user can sign up with email address.
 
-Need to add username and password in the future.
+Can be improved by adding username and password in the future.
 
 ## Post
-After user login, the user can post new message with title and description.
+After user login, the user can link the link "New Post" on the top to post new message with title and description. The link will only show when the user logged in.
 
-Need to add feature of mention and hashtag in the future.
+Can be improved bt adding feature of mention and hashtag in the future.
 
 ## Follow
 A user can follow other users.
 
 Not completely implemented!!!
 
-# Microblog
-
+# Reference
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`

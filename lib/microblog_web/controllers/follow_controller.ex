@@ -17,7 +17,10 @@ defmodule MicroblogWeb.FollowController do
   def create(conn, %{"follow" => follow_params}) do
     case Blog.create_follow(follow_params) do
       {:ok, follow} ->
+        follow = Microblog.Repo.preload(follow, [:follower_id, :following_user_id])
+        follower = Microblog.Accounts.get_user!(follow_params["follower_id"])
         following_user = Microblog.Accounts.get_user!(follow_params["following_user_id"])
+
         conn
         |> put_flash(:info, "Follow created successfully.")
         |> redirect(to: user_path(conn, :show, following_user))

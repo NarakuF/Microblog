@@ -2,4 +2,4 @@
 
 <%= render "form.html", Map.put(assigns, :action, follow_path(@conn, :update, @follow)) %>
 
-<span><%= link "Back", to: follow_path(@conn, :index) %></span>
+<span><%= link "Back", to: message_path(@conn, :index) %></span>

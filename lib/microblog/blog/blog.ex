@@ -135,6 +135,10 @@ defmodule Microblog.Blog do
   """
   def get_follow!(id), do: Repo.get!(Follow, id)
 
+  def get_follow_by_users(a, b) do
+    Repo.get_by(Follow, follower_id: a.id, following_user_id: b.id)
+  end
+
   @doc """
   Creates a follow.
 

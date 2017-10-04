@@ -6,7 +6,7 @@ defmodule MicroblogWeb.FollowController do
 
   def index(conn, _params) do
     follows = Blog.list_follows()
-    render(conn, "index.html", follows: follows)
+    redirect conn, to: message_path(conn, :index)
   end
 
   def new(conn, _params) do
@@ -17,10 +17,7 @@ defmodule MicroblogWeb.FollowController do
   def create(conn, %{"follow" => follow_params}) do
     case Blog.create_follow(follow_params) do
       {:ok, follow} ->
-        follow = Microblog.Repo.preload(follow, [:follower_id, :following_user_id])
-        follower = Microblog.Accounts.get_user!(follow_params["follower_id"])
         following_user = Microblog.Accounts.get_user!(follow_params["following_user_id"])
-
         conn
         |> put_flash(:info, "Follow created successfully.")
         |> redirect(to: user_path(conn, :show, following_user))
@@ -55,10 +52,11 @@ defmodule MicroblogWeb.FollowController do
 
   def delete(conn, %{"id" => id}) do
     follow = Blog.get_follow!(id)
+    user = Microblog.Accounts.get_user!(follow.following_user_id)
     {:ok, _follow} = Blog.delete_follow(follow)
 
     conn
     |> put_flash(:info, "Follow deleted successfully.")
-    |> redirect(to: follow_path(conn, :index))
+    |> redirect(to: user_path(conn, :show, user))
   end
 end

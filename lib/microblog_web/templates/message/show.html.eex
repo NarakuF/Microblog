@@ -1,15 +1,16 @@
-<h2>Show Message</h2>
-
-<ul>
-  <li>
-    <strong>Title:</strong>
-    <%= @message.title %>
-  </li>
-  <li>
-    <strong>Desc:</strong>
-    <%= @message.desc %>
-  </li>
-</ul>
+<div class="row">
+  <div class="col-md-12 my-5">
+    <h1><%= @message.user.email %></h1>
+  </div>
+  <div class="col-md-12 my-2">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"><%= @message.title %></h4>
+        <p class="card-text"><%= @message.desc %><p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= if @message.user==@current_user do %>
   <span><%= link "Delete", to: message_path(@conn, :delete, @message), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>

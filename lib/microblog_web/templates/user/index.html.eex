@@ -9,7 +9,6 @@
           <h4 class="card-title">
             <%= link user.email, to: user_path(@conn, :show, user), class: "text-dark" %>
           </h4>
-          <button class="btn btn-primary" type="submit">Follow</button>
         </div>
       </div>
     </div>

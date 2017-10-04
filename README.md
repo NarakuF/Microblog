@@ -1,6 +1,6 @@
 # Microblog
 Github repo: https://github.com/NarakuF/microblog.git                      
-Deployed app: microblog.guandongliu.com
+Deployed app: http://microblog.guandongliu.com
 
 # Behavior
 ## Login/ signup

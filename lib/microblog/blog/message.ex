@@ -8,6 +8,7 @@ defmodule Microblog.Blog.Message do
     field :desc, :string
     field :title, :string
     belongs_to :user, Microblog.Accounts.User
+    has_many :likes, Like
 
     timestamps()
   end

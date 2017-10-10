@@ -5,7 +5,6 @@ defmodule MicroblogWeb.FollowController do
   alias Microblog.Blog.Follow
 
   def index(conn, _params) do
-    follows = Blog.list_follows()
     redirect conn, to: message_path(conn, :index)
   end
 
@@ -17,7 +16,7 @@ defmodule MicroblogWeb.FollowController do
   def create(conn, %{"follow" => follow_params}) do
     case Blog.create_follow(follow_params) do
       {:ok, follow} ->
-        following_user = Microblog.Accounts.get_user!(follow_params["following_user_id"])
+        following_user = Microblog.Accounts.get_user!(follow.following_user_id)
         conn
         |> put_flash(:info, "Follow created successfully.")
         |> redirect(to: user_path(conn, :show, following_user))

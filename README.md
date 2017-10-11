@@ -29,7 +29,7 @@ Deployed app: http://microblog.guandongliu.com
     6. Modify js in `assets/js/app.js`
 
 ## Deploy
-  1. 'git clone https://github.com/NarakuF/microblog.git'
+  1. `git clone https://github.com/NarakuF/microblog.git`
   2. Manually set `$DIR` in `./deploy.sh`
   3. run script `./deploy.sh` 
 

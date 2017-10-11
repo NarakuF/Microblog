@@ -36,7 +36,7 @@ $(function() {
   let m_id = dd.data('message_id');
 
   let bb = $($("#like-btn")[0]);
-  let u_id = bb.data('user-id');
+  let u_id = bb.data('user_id');
 
   function fetch_likes() {
     function got_likes(data) {

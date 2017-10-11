@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Following the instruction by Nat Tuck in cs4550
 export PORT=8000
 DIR=/home/microblog
 

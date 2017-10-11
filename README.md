@@ -1,3 +1,5 @@
+*Note: This microblog app (also deploy script) is followed the instruction by Nat Tuck in cs4550, [nu_mart](https://github.com/NatTuck/nu_mart)*
+
 # Microblog
 Github repo: https://github.com/NarakuF/microblog.git                      
 Deployed app: http://microblog.guandongliu.com

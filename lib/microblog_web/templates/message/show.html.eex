@@ -10,7 +10,7 @@
       </div>
       <%= if @current_user do %>
         <button class="btn btn-primary" id="like-btn"
-                data-user-id="<%= @current_user.id %>">Like</button>
+                data-user_id="<%= @current_user.id %>">Like</button>
       <% end %>
     </div>
   </div>

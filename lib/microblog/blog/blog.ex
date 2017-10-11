@@ -219,6 +219,11 @@ defmodule Microblog.Blog do
     Repo.all(Like)
   end
 
+  def list_message_likes(message_id) do
+    Repo.all(from l in Like, where: l.message_id == ^message_id)
+    |> Repo.preload(:user)
+  end
+
   @doc """
   Gets a single like.
 

@@ -2,23 +2,38 @@
 Github repo: https://github.com/NarakuF/microblog.git                      
 Deployed app: http://microblog.guandongliu.com
 
-# Behavior
-## Login/ signup
-A registered user can login with email address and logout, a new user can sign up with email address.
+## Behaviors
+### Signup/ Login
+  * A new user can sign up with email address.
+  * A registered user can login with email address and logout.
 
-Can be improved by adding username and password in the future.
+*Can be improved by adding username and password in the future.*
 
-## Post
-After user login, the user can link the link "New Post" on the top to post new message with title and description. The link will only show when the user logged in.
+### Post messages
+  * After logging in, the user can click "New Post" on the top to post new message (title and description required).
+  * "New Post" will not show up if the user does not log in.
 
-Can be improved bt adding feature of mention and hashtag in the future.
+*Can be improved by adding feature of mention and hashtag in the future.*
 
-## Follow
-A user can follow other users.
+### Follow users
+  * **Only** after logging in, the user can follow other users (**Follow twice will unfollow**).
 
-Not completely implemented!!!
+### Like messages
+  * **Only** after logging in, the user can like other users' messages.
+  * implement:
+    1. Add likes table to postgreSQL database
+    2. Modify schemas (likes, users, messages)
+    3. Add helper method in blog.ex and change controller
+    4. Add handlebars to deps with *npm*
+    5. Modify message show page
+    6. Modify js in `assets/js/app.js`
 
-# Reference
+## Deploy
+  1. 'git clone https://github.com/NarakuF/microblog.git'
+  2. Manually set `$DIR` in `./deploy.sh`
+  3. run script `./deploy.sh` 
+
+## Reference
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`

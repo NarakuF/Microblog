@@ -5,7 +5,7 @@ defmodule MicroblogWeb.MessageController do
   alias Microblog.Blog.Message
 
   def index(conn, _params) do
-    messages = Blog.list_messages()
+    messages = Blog.list_messages() |> Enum.reverse
     render(conn, "index.html", messages: messages)
   end
 

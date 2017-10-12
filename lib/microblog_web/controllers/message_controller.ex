@@ -27,7 +27,7 @@ defmodule MicroblogWeb.MessageController do
 
   def show(conn, %{"id" => id}) do
     message = Blog.get_message!(id)
-    render(conn, "show.html", message: message)
+    render(conn, "show.html", liked: Blog.get_like_by_ids(conn.assigns[:current_user], message), message: message)
   end
 
   def edit(conn, %{"id" => id}) do

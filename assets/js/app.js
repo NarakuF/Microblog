@@ -57,6 +57,7 @@ $(function() {
 
   function add_like() {
     let data = {like: {user_id: u_id, message_id: m_id}};
+    window.location.reload();
 
     $.ajax({
       url: path,

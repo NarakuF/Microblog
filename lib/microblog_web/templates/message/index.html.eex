@@ -11,8 +11,10 @@
             <%= link(message.title, to: message_path(@conn, :show, message)) %>
           </h4>
           <p class="card-text"><%= message.desc %><p>
+          <p>Likes: <%= Microblog.Blog.like_count(message) %></p>
         </div>
       </div>
     </div>
   <% end %>
+
 </div>

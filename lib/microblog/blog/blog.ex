@@ -240,6 +240,10 @@ defmodule Microblog.Blog do
   """
   def get_like!(id), do: Repo.get!(Like, id)
 
+  def get_like_by_ids(u, m) do
+    Repo.get_by(Like, user_id: u.id, message_id: m.id)
+  end
+
   @doc """
   Creates a like.
 
@@ -303,5 +307,9 @@ defmodule Microblog.Blog do
   """
   def change_like(%Like{} = like) do
     Like.changeset(like, %{})
+  end
+  
+  def like_count(m) do
+    Repo.aggregate(from(l in Like, where: l.message_id == ^m.id), :count, :id)
   end
 end

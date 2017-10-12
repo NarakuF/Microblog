@@ -7,11 +7,15 @@
       <div class="card-body">
         <h4 class="card-title"><%= @message.title %></h4>
         <p class="card-text"><%= @message.desc %><p>
+        <%= if @current_user do %>
+          <%= if @liked do %>
+            <button class="btn btn-outline-dark">Liked</button>
+          <% else %>
+            <button class="btn btn-primary" id="like-btn"
+                    data-user_id="<%= @current_user.id %>">Like</button>
+          <% end %>
+        <% end %>
       </div>
-      <%= if @current_user do %>
-        <button class="btn btn-primary" id="like-btn"
-                data-user_id="<%= @current_user.id %>">Like</button>
-      <% end %>
     </div>
   </div>
 </div>
@@ -30,10 +34,11 @@
 
 <script id="likes-template" type="text/x-handlebars-template">
   <div class="text-center">
+    <p>Likes: <%= Microblog.Blog.like_count(@message) %></p>
     {{#each data}}
-      <p>{{user_email}}</p>
+      <p>{{user_email}} liked this message.</p>
     {{else}}
-      <p>No like</p>
+      <p>No likes</p>
     {{/each}}
   </div>
 </script>

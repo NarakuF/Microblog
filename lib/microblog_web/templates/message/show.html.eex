@@ -8,7 +8,7 @@
         <h4 class="card-title"><%= @message.title %></h4>
         <p class="card-text"><%= @message.desc %><p>
         <%= if @current_user do %>
-          <%= if @liked do %>
+          <%= if Microblog.Blog.get_like_by_ids(@current_user, @message) do %>
             <button class="btn btn-outline-dark">Liked</button>
           <% else %>
             <button class="btn btn-primary" id="like-btn"

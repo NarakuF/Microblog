@@ -2,9 +2,9 @@
   <div class="col-md-12 my-5">
     <h1>All Messages</h1>
   </div>
-  <%= for message <- @messages do %>  
-    <div class="col-md-12 my-2">
-      <div class="card">
+  <div class="col-md-12", id="messages">
+    <%= for message <- @messages do %>  
+      <div class="card my-2">
         <div class="card-body">
           <h3><%= link message.user.email, to: user_path(@conn, :show, message.user), class: "text-dark" %></h3>
           <h4 class="card-title">
@@ -14,6 +14,6 @@
           <p>Likes: <%= Microblog.Blog.like_count(message) %></p>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

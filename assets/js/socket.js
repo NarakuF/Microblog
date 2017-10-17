@@ -54,7 +54,49 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 socket.connect()
 
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("topic:subtopic", {})
+let channel = socket.channel("updates:all", {})
+
+const newMsg = function(payload) {
+  let msg_card = document.createElement("div");
+  msg_card.className = "card my-2";
+  
+  let card_body = document.createElement("div");
+  card_body.className = "card-body";
+  msg_card.appendChild(card_body);
+  
+  let user = document.createElement("h3");
+  let user_link = document.createElement("a");
+  user_link.href = payload.user_path;
+  user_link.className = "text-dark";
+  user_link.innerText = payload.message_user
+  user.appendChild(user_link);
+  card_body.appendChild(user);
+
+  let msg_title = document.createElement("h4");
+  msg_title.className = "card-title";
+  let msg_link = document.createElement("a");
+  msg_link.href = payload.message_path;
+  msg_link.innerText = payload.message_title;
+  msg_title.appendChild(msg_link);
+  card_body.appendChild(msg_title);
+
+  let msg_desc = document.createElement("p");
+  msg_desc.className = "card-text";
+  msg_desc.innerText = payload.message_desc;
+  card_body.appendChild(msg_desc);
+
+  let likes = document.createElement("p");
+  likes.innerText = "Likes: 0";
+  card_body.appendChild(likes);
+
+  return msg_card;
+}
+
+channel.on("new_msg", payload => {
+  let message = newMsg(payload);
+  $("#messages").prepend(message);
+})
+
 channel.join()
   .receive("ok", resp => { console.log("Joined successfully", resp) })
   .receive("error", resp => { console.log("Unable to join", resp) })

@@ -8,8 +8,8 @@
   <%= hidden_input f, :user_id, value: @current_user.id %>
 
   <div class="form-group">
-    <%= label f, :content, class: "control-label" %>
-    <%= textarea f, :content, class: "form-control" %>
+    <%= label f, :content, class: "control-label sr-only" %>
+    <%= textarea f, :content, class: "form-control", placeholder: "I want to say ..." %>
     <%= error_tag f, :content %>
   </div>
 

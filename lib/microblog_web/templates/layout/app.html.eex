@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Hello Microblog!</title>
+    <title>Microblog</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body class="bg-light">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Blog</a>
+      <h1 class="navbar-brand mb-0">Blog</h1>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -23,7 +23,10 @@
           </li>
           <%= if @current_user do %>
             <li class="nav-item">
-              <%= link "New Post", to: message_path(@conn, :new), class: "nav-link" %>
+              <%= link "Post", to: message_path(@conn, :new), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link "Account", to: user_path(@conn, :show, @current_user), class: "nav-link" %>
             </li>
           <% end %>
         </ul>

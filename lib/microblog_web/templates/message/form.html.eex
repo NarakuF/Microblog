@@ -8,15 +8,9 @@
   <%= hidden_input f, :user_id, value: @current_user.id %>
 
   <div class="form-group">
-    <%= label f, :title, class: "control-label" %>
-    <%= text_input f, :title, class: "form-control" %>
-    <%= error_tag f, :title %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :desc, class: "control-label" %>
-    <%= textarea f, :desc, class: "form-control" %>
-    <%= error_tag f, :desc %>
+    <%= label f, :content, class: "control-label" %>
+    <%= textarea f, :content, class: "form-control" %>
+    <%= error_tag f, :content %>
   </div>
 
   <div class="form-group">

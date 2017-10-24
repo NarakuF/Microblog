@@ -6,9 +6,9 @@ defmodule Microblog.BlogTest do
   describe "messages" do
     alias Microblog.Blog.Message
 
-    @valid_attrs %{desc: "some desc", title: "some title"}
-    @update_attrs %{desc: "some updated desc", title: "some updated title"}
-    @invalid_attrs %{desc: nil, title: nil}
+    @valid_attrs %{content: "some content"}
+    @update_attrs %{content: "some updated content"}
+    @invalid_attrs %{content: nil}
 
     def message_fixture(attrs \\ %{}) do
       {:ok, message} =
@@ -31,8 +31,7 @@ defmodule Microblog.BlogTest do
 
     # test "create_message/1 with valid data creates a message" do
     # assert {:ok, %Message{} = message} = Blog.create_message(@valid_attrs)
-    # assert message.desc == "some desc"
-    # assert message.title == "some title"
+    # assert message.content == "some content"
     # end
 
     test "create_message/1 with invalid data returns error changeset" do
@@ -43,8 +42,7 @@ defmodule Microblog.BlogTest do
     # message = message_fixture()
     # assert {:ok, message} = Blog.update_message(message, @update_attrs)
     # assert %Message{} = message
-    # assert message.desc == "some updated desc"
-    # assert message.title == "some updated title"
+    # assert message.content == "some updated content"
     # end
 
     # test "update_message/2 with invalid data returns error changeset" do

@@ -3,9 +3,9 @@ defmodule MicroblogWeb.MessageControllerTest do
 
   alias Microblog.Blog
 
-  @create_attrs %{desc: "some desc", title: "some title"}
-  @update_attrs %{desc: "some updated desc", title: "some updated title"}
-  @invalid_attrs %{desc: nil, title: nil}
+  @create_attrs %{content: "some content"}
+  @update_attrs %{content: "some updated content"}
+  @invalid_attrs %{content: nil}
 
   def fixture(:message) do
     {:ok, message} = Blog.create_message(@create_attrs)

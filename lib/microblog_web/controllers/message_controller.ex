@@ -18,8 +18,7 @@ defmodule MicroblogWeb.MessageController do
     case Blog.create_message(message_params) do
       {:ok, message} ->
         MicroblogWeb.Endpoint.broadcast("updates:all", "new_msg",
-        %{message_title: message.title,
-          message_desc: message.desc,
+        %{message_content: message.content,
           message_user: Microblog.Accounts.get_user!(message.user_id).email,
           user_path: user_path(conn, :show, Microblog.Accounts.get_user!(message.user_id)),
           message_path: message_path(conn, :show, message)})

@@ -24,5 +24,5 @@ Repo.delete_all(User)
 alias Microblog.Blog.Message
 Repo.delete_all(Message)
 
-# Repo.insert!(%Message{title: "Hello", desc: "Hello World!", user_id: liu.id })
-# Repo.insert!(%Message{title: "Monday", desc: "Today is Monday.", user_id: lgd.id })
+# Repo.insert!(%Message{content: "Hello World!", user_id: liu.id })
+# Repo.insert!(%Message{content: "Today is Monday.", user_id: lgd.id })

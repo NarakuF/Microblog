@@ -6,11 +6,10 @@
     <%= for message <- @messages do %>  
       <div class="card my-2">
         <div class="card-body">
-          <h3><%= link message.user.email, to: user_path(@conn, :show, message.user), class: "text-dark" %></h3>
-          <h4 class="card-title">
-            <%= link(message.title, to: message_path(@conn, :show, message)) %>
-          </h4>
-          <p class="card-text"><%= message.desc %><p>
+          <h4 class="card-title"><%= link message.user.email, to: user_path(@conn, :show, message.user), class: "text-dark" %></h4>
+          <p class="card-text">
+            <%= link message.content, to: message_path(@conn, :show, message), class: "text-dark" %>
+          </p>
           <p>Likes: <%= Microblog.Blog.like_count(message) %></p>
         </div>
       </div>

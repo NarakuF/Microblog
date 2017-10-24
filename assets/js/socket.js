@@ -64,7 +64,8 @@ const newMsg = function(payload) {
   card_body.className = "card-body";
   msg_card.appendChild(card_body);
   
-  let user = document.createElement("h3");
+  let user = document.createElement("h4");
+  user.className = "card-title";
   let user_link = document.createElement("a");
   user_link.href = payload.user_path;
   user_link.className = "text-dark";
@@ -72,18 +73,14 @@ const newMsg = function(payload) {
   user.appendChild(user_link);
   card_body.appendChild(user);
 
-  let msg_title = document.createElement("h4");
-  msg_title.className = "card-title";
+  let msg_content = document.createElement("p");
+  msg_content.className = "card-text";
   let msg_link = document.createElement("a");
   msg_link.href = payload.message_path;
-  msg_link.innerText = payload.message_title;
-  msg_title.appendChild(msg_link);
-  card_body.appendChild(msg_title);
-
-  let msg_desc = document.createElement("p");
-  msg_desc.className = "card-text";
-  msg_desc.innerText = payload.message_desc;
-  card_body.appendChild(msg_desc);
+  msg_link.className = "text-dark";
+  msg_link.innerText = payload.message_content;
+  msg_content.appendChild(msg_link);
+  card_body.appendChild(msg_content);
 
   let likes = document.createElement("p");
   likes.innerText = "Likes: 0";

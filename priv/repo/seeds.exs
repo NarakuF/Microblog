@@ -15,8 +15,8 @@ alias Microblog.Repo
 alias Microblog.Blog.Like
 Repo.delete_all(Like)
 
-# alias Microblog.Accounts.User
-# Repo.delete_all(User)
+alias Microblog.Accounts.User
+Repo.delete_all(User)
 
 # liu = Repo.insert!(%User{email: "liu.gu@husky.neu.edu" })
 # lgd = Repo.insert!(%User{email: "lgd9598@gmail.com" })

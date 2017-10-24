@@ -1,10 +1,10 @@
 defmodule MicroblogWeb.SessionController do
   use MicroblogWeb, :controller
 
-  alias Microblog.Accounts
+  alias Microblog.Accounts.User
 
-  def login(conn, %{"email" => email}) do
-    user = Accounts.get_user_by_email(email)
+  def login(conn, %{"email" => email, "password" => password}) do
+    user = User.get_and_auth_user(email, password)
 
     if user do
       conn
@@ -14,7 +14,7 @@ defmodule MicroblogWeb.SessionController do
     else
       conn
       |> put_session(:user_id, nil)
-      |> put_flash(:error, "No such user")
+      |> put_flash(:error, "Wrong email or password")
       |> redirect(to: message_path(conn, :index))
     end
   end

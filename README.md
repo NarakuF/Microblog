@@ -1,8 +1,8 @@
-*Note: This microblog app (also deploy script) is followed the instruction by [Nat Tuck](https://github.com/NatTuck/nu_mart) in CS4550 Web Development.
+**Note**: This microblog app (also deploy script) is followed the instruction by [Nat Tuck](https://github.com/NatTuck/nu_mart) in CS4550 Web Development.
 
 # Microblog
 * [Github repo](https://github.com/NarakuF/microblog.git)
-* [Deployed app](http://microblog.guandongliu.com)*
+* [Deployed app](http://microblog.guandongliu.com) (**Inactive**)
 
 ## Behaviors
 ### Signup/ Login
@@ -30,7 +30,7 @@
     5. Modify message show page
     6. Modify js in `assets/js/app.js`
 
-#### Need to do
+### TODO
     1. Unfollow
     2. Like does not work after new message posted
 

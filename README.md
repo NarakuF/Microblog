@@ -1,8 +1,8 @@
-*Note: This microblog app (also deploy script) is followed the instruction by Nat Tuck in cs4550, [nu_mart](https://github.com/NatTuck/nu_mart)*
+*Note: This microblog app (also deploy script) is followed the instruction by [Nat Tuck](https://github.com/NatTuck/nu_mart) in CS4550 Web Development.
 
 # Microblog
-Github repo: https://github.com/NarakuF/microblog.git                      
-Deployed app: http://microblog.guandongliu.com
+* [Github repo](https://github.com/NarakuF/microblog.git)
+* [Deployed app](http://microblog.guandongliu.com)*
 
 ## Behaviors
 ### Signup/ Login

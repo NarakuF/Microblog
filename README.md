@@ -31,8 +31,8 @@
     6. Modify js in `assets/js/app.js`
 
 ### TODO
-    1. Unfollow
-    2. Like does not work after new message posted
+* Unfollow
+* Like does not work after new message posted
 
 ## Deploy
   1. `git clone https://github.com/NarakuF/microblog.git`
